@@ -1,7 +1,7 @@
 = cattr
 
 Like attr_accessor for instance methods, but creates class methods/variables instead.
-Works just like the version for rails (except it doesn't accept blocks and doesn't use eval).
+Works much like the version for rails (except it doesn't accept blocks and doesn't use eval).
 
   class Moo
     cattr_accessor :cow
