@@ -6,28 +6,38 @@ class TestCattr < Test::Unit::TestCase
       cattr_accessor :cow
     end
     Moo.cow = 'test'
-    assert('test',Moo.cow)
+    assert_equal('test',Moo.cow)
   end
 
   should "create class setter" do
-    class Moo
+    class Moo1
       cattr_writer :cow
       def self.get
         @@cow
       end
     end
-    Moo.cow = 'test'
-    assert('test',Moo.get)
+    Moo1.cow = 'test'
+    assert_equal('test',Moo1.get)
+  end
+
+  should "set and reset attributes" do
+    class Moo2
+      cattr_accessor :cow
+    end
+    Moo2.cow = 'test'
+    assert('test',Moo2.cow)
+    Moo2.cow = 'test2'
+    assert_equal('test2',Moo2.cow)
   end
 
   should "create class reder" do
-    class Moo
+    class Moo3
       cattr_reader :cow
       def self.get=(arg)
         @@cow = arg
       end
     end
-    Moo.get = 'test'
-    assert('test',Moo.cow)
+    Moo3.get = 'test'
+    assert_equal('test',Moo3.cow)
   end
 end

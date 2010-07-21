@@ -11,14 +11,7 @@ class Class
   def cattr_writer(*meths)
     meths.each do |meth|
       self.class.send(:define_method, :"#{meth}=") do |arg|
-        # if we can get the class variable it means it exists so
-        # we don't want to overwrite it.
-        begin
-          class_variable_get("@@#{meth}")
-        rescue NameError
-          # if we get a nameerror, then it didn't exist so let's set it
-          class_variable_set("@@#{meth}", arg)
-        end
+        class_variable_set("@@#{meth}", arg)
       end
     end
   end
