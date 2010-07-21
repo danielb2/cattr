@@ -1,6 +1,16 @@
 = cattr
 
-Description goes here.
+Like attr_accessor for instance methods, but creates class methods/variables instead.
+
+  class Moo
+    cattr_accessor :cow
+  end
+  Moo.cow = 'animal'
+  ap Moo.class_variables
+    [
+      [0] :@@cow
+    ]
+
 
 == Note on Patches/Pull Requests
  
