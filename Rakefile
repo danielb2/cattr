@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "cattr"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{cattr like attr_* but for class methods}
+    gem.description = %Q{cattr like attr_* but for class methods. we know rails has it, but it's useful eleswhere too.}
     gem.email = "daniel@netwalk.org"
     gem.homepage = "http://github.com/danielb2/cattr"
     gem.authors = ["Daniel Bretoi"]
