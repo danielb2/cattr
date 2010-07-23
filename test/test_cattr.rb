@@ -58,4 +58,15 @@ class TestCattr < Test::Unit::TestCase
     Foo2.init
     assert_equal(3,Foo2.moo)
   end
+
+  should "assign in class with class meth" do
+    class Foo3
+      cattr_accessor :moo
+      def self.init
+        self.moo = 3
+      end
+    end
+    Foo3.init
+    assert_equal(3,Foo3.moo)
+  end
 end
