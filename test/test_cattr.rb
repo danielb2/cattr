@@ -40,4 +40,22 @@ class TestCattr < Test::Unit::TestCase
     Moo3.get = 'test'
     assert_equal('test',Moo3.cow)
   end
+
+  should "return nil if not defined" do
+    class Foo
+      cattr_reader :moo
+    end
+    assert_equal(nil,Foo.moo)
+  end
+
+  should "assign in class" do
+    class Foo2
+      cattr_reader :moo
+      def self.init
+        @@moo = 3
+      end
+    end
+    Foo2.init
+    assert_equal(3,Foo2.moo)
+  end
 end
